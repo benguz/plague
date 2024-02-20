@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title>PlagueApp Princeton</title>
+    <meta name="title" content="PlagueApp Princeton">
+    <meta name="description" content="Apply to your dream school today!">
+    <!-- <meta property="og:url" content="https://doorstopped.org/">
+    <meta property="og:image" content="https://doorstopped.org/og.jpg">
+    <meta name="twitter:image" content="https://doorstopped.org/og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630"> -->
+    <meta property="og:title" content=">PlagueApp Princeton">
+    <meta property="og:description" content="">
+    <!-- <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://doorstopped.org/"> -->
+    <meta property="twitter:title" content=">PlagueApp Princeton">
+    <meta property="twitter:description" content="">
+    <link rel="shortcut icon" href="/favicon/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+
+    <!-- include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- include jQuery UI -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+<script defer data-domain="benguzovsky.com" src="https://plausible.io/js/script.js"></script>
+<style>
+    * {
+        box-sizing: border-box;
+        position: relative;
+        min-width: 0;
+    }
+
+    body {
+        min-height: 100dvh;
+        max-width: 100%;
+        /* font-family: -apple-system, BlinkMacSystemFont, sans-serif; */
+        font-family: inter, sans-serif;
+        margin: 0;
+        display: flex;
+        background-color: #ffa588;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    h1, h2, h3, h4 {
+        text-wrap: balance
+    }
+
+    p {
+        text-wrap: pretty;
+        /* font-family: Lora, serif; */
+        color: white;
+        margin: 0;
+        margin-bottom: 5px;
+        font-size: 14pt;
+        line-height: 1.4;
+    }
+    h1, h2 {
+        font-size: 18pt;
+        font-weight:400;
+    }
+    a {
+        color: inherit;
+        /* font-family: Lora, serif; */
+        /* text-decoration: none; */
+    }
+    .demo-img {
+        border-radius: 2px;
+        margin: auto;
+    }
+/* 
+    img {
+        position: relative; 
+        animation: slideIn 1s ease 3s forwards;
+        width: 100%;
+        margin-top: 20%;
+        left: -20%;
+        height: auto;
+    }
+    #img-1 {
+        visibility: hidden; 
+
+    } */
+
+    @keyframes slideIn {
+        0% {
+            margin-top: 20%;
+            left: -20%;
+        }
+        /* 85% { 
+            margin-top: 7%;
+            left: 3%;
+        }*/
+        100% {
+            margin-top: 10%;
+            left: 0;
+        }
+    }
+
+    /* .feed {
+        width: 78%;
+        overflow: hidden;
+        padding: 10px;
+    }
+    .timeline {
+        width: 22%;
+        padding: 10px;
+        margin-left: 20px;
+    }
+    
+    .overlay-top,
+.overlay-bottom {
+    position: fixed;
+    -o-object-fit: cover;
+    object-fit: cover;
+    height: 12%;
+    width: 100%;
+    z-index: 2;
+    left: 0;
+    pointer-events: none;
+}
+
+.overlay-top {
+    top: -1px
+}
+
+.overlay-bottom {
+    bottom: 1px
+}
+
+.descriptor {
+    margin-top: 300px;
+}
+*/
+
+.intro {
+    position: absolute; top: 40vh; left: 10vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.choice {
+    border-radius: 15px;
+    background-color: transparent;
+    position: relative;
+    padding: 8px 12px;
+    margin-right: 10px;
+    border: 1px solid rgb(75, 75, 75);
+  -webkit-transition: color 0.3s;
+  -moz-transition: color 0.3s;
+  transition: color 0.3s;
+  overflow: hidden;
+  z-index: 2;
+}
+.choice::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: calc(-100% - 1px); /* Start from the left */
+    width: calc(100% + 1px);
+    height: 100%;
+    background-color: #474747; /* Color that slides over */
+    transition: left 0.3s;
+    border-radius: 10px; /* Same border radius as the button */
+    z-index: -1;
+}
+
+.choice:hover::before {
+    left: 0;
+}
+
+.choice:hover {
+    color: #fff; 
+    cursor: pointer;
+}
+
+.menu-item  {
+    border-radius: 1px;
+    background-color: transparent;
+    position: relative;
+    padding: 8px 12px;
+    margin-right: 10px;
+    color: white;
+    border: 1px solid white;
+    z-index: 2;
+
+}
+
+.menu-item::before {
+    /* content: ''; */
+    position: absolute;
+    top: 0;
+}
+.menu-item:hover {
+    cursor: pointer;
+}
+
+.item {
+    width: 100%; height: 25vh; background-color: #fce5dd
+}
+.item:first-of-type {
+    border-radius: 0px 20px 0px 0px;
+}
+.main {
+    background-color: #DCFCE7; border-radius: 0px 40px 40px 0px; width: 100%; margin: 0; min-height: 100%; 
+}
+.section {
+    border-radius: 40px 0px 0px 40px; 
+}
+
+.section-animate {
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 0.7s forwards;
+   /* animation-delay: 1.5s;  */
+}
+
+.main-animate {
+    animation: mainOut 1.6s forwards;
+}
+
+.section.main-animate {
+    animation: sectionOut 1.6s forwards
+}
+
+@keyframes sectionOut {
+    0% {
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+    }
+    40% {
+        opacity: 0.8;
+        clip-path: inset(0 0 0 0);
+    }
+    100% {
+        opacity: 0.7;
+        clip-path: inset(0 0 0 100%);
+    }
+}
+
+@keyframes mainOut {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+    }
+    40% {
+        transform: scale(0.9);
+        opacity: 0.8;
+        clip-path: inset(0 0 0 0);
+    }
+    100% {
+        transform: scale(0.9);
+        opacity: 0.7;
+        clip-path: inset(0 0 0 100%);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.experiences {
+    display: flex; 
+    flex-direction: column; 
+    margin-top: 100vh; 
+    justify-content: center; align-items: center; width: 100%;
+}
+
+.experience {
+    display: flex; flex-direction: row; justify-content: space-between; align-items: center; width: 100%;
+    height: 80vh;
+}
+#backwards {
+    flex-direction: row-reverse;
+}
+
+#writing .experience {
+    height: 60vh;
+}
+
+.experience p {
+    color: black;
+}
+
+.left {
+    width: 35%; margin-left: 10vh; 
+}
+
+.left p {
+    font-family: Inter; font-weight: 500; color: black;
+}
+
+.right {
+    width: 65%; display: flex; margin-left: 20px
+}
+
+.footer {
+    height: 35vh;
+    width: 100%;
+}
+ul {
+    padding-inline-start: 20px;
+}
+
+.arrow {
+    font-size: 30px; /* Adjust the size of the arrow */
+    color: white; /* Arrow color */
+    text-align: center;
+    cursor: pointer; /* Change cursor to indicate it's clickable */
+    animation: pulse 2.5s infinite;
+    position: absolute;
+    top: 92vh;
+    left: calc(50% - 15px);
+    opacity: 0;
+    animation-delay: 1.5s;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.hamburger-menu {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.hamburger-menu .bar1, .hamburger-menu .bar2, .hamburger-menu .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: white;
+  border-radius: 5px;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+/* Animation styles */
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-7.5px, 7.5px);
+  transform: rotate(-45deg) translate(-7.5px, 7.5px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+
+.menu {
+    position: absolute; top: 3em; 
+    right: 3em; display: none; 
+    flex-direction: column; 
+    justify-content: space-between; width: 15%; max-height: 20vh; height: 20vh;
+}
+
+.right p {
+    width: 80%; margin: auto;
+}
+
+.wider, .right .wider {
+    width: 90%
+}
+
+
+@media (max-width: 768px) {
+    .menu {
+        width: 50%;
+        justify-content: space-evenly;
+    }
+    .intro {
+        left: 10px;
+    }
+    .experience, #backwards {
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+    
+    .main {
+        background-color: #DCFCE7; border-radius: 30px 30px 0px 0px; width: 100%; margin: 0; min-height: 100%; 
+    }
+    .right {
+        width: 100%; margin-left: 0; margin-bottom: 15px;
+    }
+    .demo-img {
+        width: calc(100% - 20px); 
+    }
+    .left, .right p, .wider, .right .wider{
+        width: calc(100% - 20px); margin-left: 10px; 
+
+    }
+    .experience {
+        height: 70vh;
+    }
+    #writing .experience {
+        height: 50vh;
+    }
+
+
+
+    @keyframes mainOut {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+    }
+    40% {
+        transform: scale(0.9);
+        opacity: 0.8;
+        clip-path: inset(0 0 0 0);
+    }
+    100% {
+        transform: scale(0.9);
+        opacity: 0.7;
+        clip-path: inset(0 0 100% 0);
+    }
+}
+/* 
+    .overlay-top,
+    .overlay-bottom {
+        height: 80px;
+        pointer-events: none;
+    } */
+} 
+
+
+
+.input-container {
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+}
+
+.input-container input[type="text"] {
+    flex-grow: 1; 
+    max-width: 80%;
+    border: 2px solid #ccc; /* Border for the input */
+    padding: 8px; /* Padding inside the input field */
+    border-radius: 4px 0 0 4px; /* Rounded corners on the left side */
+    border-right: none; /* Remove right border to merge with button */
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.input-container input[type="submit"] {
+    padding: 8px 16px; /* Padding inside the button */
+    border: 2px solid #ccc; /* Border for the button */
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    background-color: rgb(211, 214, 238);
+    border-radius: 0 4px 4px 0; /* Rounded corners on the right side */
+    border-left: none; /* Remove left border to merge with input field */
+    cursor: pointer; /* Cursor changes to pointer when hovering over the button */
+    transition: 0.15s;
+}
+
+.input-container input[type="submit"]:hover {
+    background-color: rgb(211, 214, 255);
+}
+
+#warning {
+    opacity: 0;
+    animation: OP 0.5s infinite;
+}
+
+@keyframes OP {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+p.subtitle {
+    font-size: 10pt;
+    color: gray;
+    margin-top: 0;
+    text-align: left;
+}
+</style>
+</head>
+<body style="background-color: white; "> 
+    <div style="justify-content: center;  display: flex; flex-direction: column; text-align: left; margin: 50px; min-width: 35%;" onclick="document.getElementById('admit').style.display='flex'">
+       <h1>Princeton PlagueApp</h1>
+        <p style="color: black"> Write your name</p>
+        <div class="input-container" autocomplete="off">
+            <input type="text" id="key" placeholder="Former princeton reject" spellcheck="false" autocapitalize="off">
+            <input id="key-form" type="submit" value="Submit">
+    </div>
+    <br>
+    <p style="color: black">Any bile or boils lately?</p>
+    <div class="input-container" autocomplete="off">
+        <input type="text" id="key" placeholder="yes/no" spellcheck="false" autocapitalize="off">
+        <input id="key-form" type="submit" value="Submit">
+</div>
+    <p class="subtitle" >Answer honestly</p>
+
+    </div>
+    <div style="display: none; position: absolute; justify-content: center; align-items: center; z-index: 3; width: 80%; top: 10%; right: 10%; height: 80%; margin: auto; background-color: white; border: 1px solid black;" id="admit">
+    <h1 style="color: red; margin: 20px;" id="warning">YOU HAVE BEEN ADMITTED WOOHOO, PLEASE COME TO CAMPUS ASAP AS POSSIBLE</h1>
+</div>
+</body>
