@@ -454,12 +454,12 @@ ul {
 .input-container {
     display: flex;
     align-items: center;
-    max-width: 100%;
+    max-width: 90%;
 }
 
 .input-container input[type="text"] {
     flex-grow: 1; 
-    max-width: 80%;
+    max-width: 60%;
     border: 2px solid #ccc; /* Border for the input */
     padding: 8px; /* Padding inside the input field */
     border-radius: 4px 0 0 4px; /* Rounded corners on the left side */
@@ -508,20 +508,27 @@ p.subtitle {
 </style>
 </head>
 <body style="background-color: white; "> 
-    <div style="justify-content: center;  display: flex; flex-direction: column; text-align: left; margin: 50px; min-width: 35%;" onclick="document.getElementById('admit').style.display='flex'">
+    <div style="justify-content: center;  display: flex; flex-direction: column; text-align: left; margin: 50px; min-width: 35%; max-width: 60%;" onclick="document.getElementById('admit').style.display='flex'">
        <h1>Princeton PlagueApp</h1>
         <p style="color: black"> Write your name</p>
         <div class="input-container" autocomplete="off">
             <input type="text" id="key" placeholder="Former princeton reject" spellcheck="false" autocapitalize="off">
             <input id="key-form" type="submit" value="Submit">
-    </div>
-    <br>
-    <p style="color: black">Any bile or boils lately?</p>
+        </div>
+        <p class="subtitle" >If you would like a different spelling on a tombstone, don't worry - we only do mass graves.</p>
+
+    <p style="color: black; margin-top: 15px;">Have you experienced any of the following symptoms: very black excrement, vomiting, stomach ulcer, fetid breath, cough, coughing up scabs, imbalanced soul.</p>
+    <div class="input-container" autocomplete="off">
+        <input type="text" id="key" placeholder="list symptoms" spellcheck="false" autocapitalize="off">
+        <input id="key-form" type="submit" value="Submit">
+</div>
+    <p class="subtitle" >Answer honestly.</p>
+    <p style="color: black; margin-top: 15px;">Are you covered with exanthem? If yes, we would LOVE to have you!</p>
     <div class="input-container" autocomplete="off">
         <input type="text" id="key" placeholder="yes/no" spellcheck="false" autocapitalize="off">
         <input id="key-form" type="submit" value="Submit">
 </div>
-    <p class="subtitle" >Answer honestly</p>
+<p class="subtitle" >If you have had extreme diharea, your exanthem should be black.</p>
 
     </div>
     <div style="display: none; position: absolute; justify-content: center; align-items: center; z-index: 3; width: 80%; top: 10%; right: 10%; height: 80%; margin: auto; background-color: white; border: 1px solid black;" id="admit">
